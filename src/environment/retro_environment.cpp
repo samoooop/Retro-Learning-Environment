@@ -127,6 +127,17 @@ void RetroEnvironment::save() {
   m_saved_states.push(new_state);
 }
 
+std::string RetroEnvironment::getStateString() {
+  RLEState current_state = cloneState();
+  RLEState test_state = RLEState(current_state.serialize());
+  return current_state.serialize();
+}
+
+void RetroEnvironment::loadStateString(std::string target_string) {
+  RLEState target_state = RLEState(target_string);
+  restoreState(target_state);
+}
+
 void RetroEnvironment::load() {
   // Get the state on top of the stack
   RLEState& target_state = m_saved_states.top();

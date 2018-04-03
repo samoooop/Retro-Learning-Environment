@@ -76,6 +76,10 @@ class RetroEnvironment {
     /** Restores a previously saved copy of the state, including RNG state information. */
     void restoreSystemState(const RLEState&);
 
+    std::string getStateString();
+
+    void loadStateString(std::string target_string);
+
     /** Applies the given actions (e.g. updating paddle positions when the paddle is used)
       *  and performs one simulation step in Stella. Returns the resultant reward. When 
       *  frame skip is set to > 1, up the corresponding number of simulation steps are performed.

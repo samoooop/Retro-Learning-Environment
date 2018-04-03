@@ -3,6 +3,8 @@
 
 #include <rle_interface.hpp>
 #include <cstring>
+#include <fstream>
+#include <sstream>
 
 using namespace rle;
 
@@ -50,7 +52,28 @@ extern "C" {
   void getScreenGrayscale(RLEInterface *rle, unsigned char *output_buffer);
 
   void saveState(RLEInterface *rle){rle->saveState();}
+
   void loadState(RLEInterface *rle){rle->loadState();}
+  
+  void saveStateToFile(RLEInterface *rle, const char *saving_path) {
+    std::string str = rle->getStateString();
+    // std::cout << "in wrapper " << str.length() << strlen(str.c_str()) << std::endl;
+    std::ofstream file;
+    file.open(saving_path);
+    file << str;
+    file.close();
+  }
+  
+  void loadStateFromFile(RLEInterface *rle,const char *loading_path){
+    std::ifstream file(loading_path);
+    std::string line;
+    std::stringstream ss;
+    ss << file.rdbuf();
+    line = ss.str();
+    file.close();
+    // std::cout<< "load in wrapper "  << line.length() << std::endl;
+    rle->loadStateString(line);
+  }
 //  RLEState* cloneState(RLEInterface *rle){return new RLEState(rle->cloneState());}
 //  void restoreState(RLEInterface *rle, RLEState* state){rle->restoreState(*state);}
 //  RLEState* cloneSystemState(RLEInterface *rle){return new RLEState(rle->cloneSystemState());}

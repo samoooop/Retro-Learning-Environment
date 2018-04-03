@@ -271,6 +271,10 @@ public:
   // Save the current screen as a png file
   void saveScreenPNG(const std::string& filename);
 
+  std::string getStateString();
+
+  void loadStateString(std::string target_string);
+
   // Creates a ScreenExporter object which can be used to save a sequence of frames. Ownership 
   // said object is passed to the caller. Frames are saved in the directory 'path', which needs
   // to exists. 

@@ -72,6 +72,10 @@ rle_lib.saveState.argtypes = [c_void_p]
 rle_lib.saveState.restype = None
 rle_lib.loadState.argtypes = [c_void_p]
 rle_lib.loadState.restype = None
+rle_lib.saveStateToFile.argtypes = [c_void_p, c_char_p]
+rle_lib.saveStateToFile.restype = c_void_p
+rle_lib.loadStateFromFile.argtypes = [c_void_p, c_char_p]
+rle_lib.loadStateFromFile.restype = c_void_p
 #rle_lib.cloneState.argtypes = [c_void_p]
 #rle_lib.cloneState.restype = c_void_p
 #rle_lib.restoreState.argtypes = [c_void_p, c_void_p]
@@ -220,6 +224,12 @@ class RLEInterface(object):
     def loadState(self):
         """Loads the state of the system"""
         return rle_lib.loadState(self.obj)
+    
+    def saveStateToFile(self, path):
+        rle_lib.saveStateToFile(self.obj, str.encode(path))
+    
+    def loadStateFromFile(self, path):
+        rle_lib.loadStateFromFile(self.obj, str.encode(path))
 
 #    def cloneState(self):
 #        """This makes a copy of the environment state. This copy does *not*

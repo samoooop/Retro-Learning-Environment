@@ -141,6 +141,10 @@ public:
 	                      pRetroAgent &theRetroAgent);
 	  void loadSettings(const std::string& romfile, const std::string& corefile,
 	                     pRleSystem &theSLESystem);
+		
+		std::string getStateString();
+
+		void loadStateString(std::string target_string);
 
 private:
 	  pRleSystem theRleSystem;
@@ -529,5 +533,21 @@ void RLEInterface::Impl::saveScreenPNG(const string& filename) {
 //ScreenExporter *RLEInterface::Impl::createScreenExporter(const std::string &filename) const {
 ////    return new ScreenExporter(theRleSystem->colourPrlette(), filename);
 //}
+
+std::string RLEInterface::getStateString() {
+	return m_pimpl->getStateString();
+}
+
+std::string RLEInterface::Impl::getStateString() {
+	return environment->getStateString();
+}
+
+void RLEInterface::loadStateString(std::string target_string) {
+	m_pimpl->loadStateString(target_string);
+}
+
+void RLEInterface::Impl::loadStateString(std::string target_string) {
+	environment->loadStateString(target_string);
+}
 
 } // namespace rle
