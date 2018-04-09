@@ -33,18 +33,27 @@ GradiusIIISettings::GradiusIIISettings() {
 						JOYPAD_DOWN | JOYPAD_RIGHT,
 						JOYPAD_DOWN | JOYPAD_LEFT,
 
-						JOYPAD_A,	// shoot
-    					JOYPAD_UP | JOYPAD_A,
-    					JOYPAD_DOWN | JOYPAD_A,
-						JOYPAD_LEFT | JOYPAD_A,
-						JOYPAD_RIGHT | JOYPAD_A,
-						JOYPAD_UP | JOYPAD_RIGHT | JOYPAD_A,
-						JOYPAD_UP | JOYPAD_LEFT | JOYPAD_A,
-						JOYPAD_DOWN | JOYPAD_RIGHT | JOYPAD_A,
-						JOYPAD_DOWN | JOYPAD_LEFT | JOYPAD_A,
+						JOYPAD_A,	// use power
+						// JOYPAD_UP | JOYPAD_A,
+						// JOYPAD_DOWN | JOYPAD_A,
+						// JOYPAD_LEFT | JOYPAD_A,
+						// JOYPAD_RIGHT | JOYPAD_A,
+						// JOYPAD_UP | JOYPAD_RIGHT | JOYPAD_A,
+						// JOYPAD_UP | JOYPAD_LEFT | JOYPAD_A,
+						// JOYPAD_DOWN | JOYPAD_RIGHT | JOYPAD_A,
+						// JOYPAD_DOWN | JOYPAD_LEFT | JOYPAD_A,
 
-						JOYPAD_B,	// use power
+						JOYPAD_B,	// shoot
 						JOYPAD_A | JOYPAD_B,
+                        JOYPAD_UP | JOYPAD_B,
+                        JOYPAD_DOWN | JOYPAD_B,
+						JOYPAD_LEFT | JOYPAD_B,
+						JOYPAD_RIGHT | JOYPAD_B,
+						JOYPAD_UP | JOYPAD_RIGHT | JOYPAD_B,
+						JOYPAD_UP | JOYPAD_LEFT | JOYPAD_B,
+						JOYPAD_DOWN | JOYPAD_RIGHT | JOYPAD_B,
+						JOYPAD_DOWN | JOYPAD_LEFT | JOYPAD_B,
+                      
 //    					JOYPAD_UP | JOYPAD_A | JOYPAD_B,
 //    					JOYPAD_DOWN | JOYPAD_A | JOYPAD_B,
 //						JOYPAD_LEFT | JOYPAD_A | JOYPAD_B,
